@@ -1,0 +1,16 @@
+import "./inputs.css"
+
+function  Header({content}){
+
+    let list = content.subheading.join(" | ")    
+
+    return(
+        <header id="header">
+            <h1>{content.name}</h1>
+            <div>{list}</div>
+        </header>
+    )
+}
+
+export default Header
+
