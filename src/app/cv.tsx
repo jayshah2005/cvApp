@@ -3,6 +3,7 @@ import Header  from "./cvOutput/Header"
 import { Education } from "./cvOutput/Education";
 import { WorkExperience } from "./cvOutput/WorkExperience";
 import { ProjectExperience } from "./cvOutput/ProjectExperience";
+import "./../App.css"
 
 export function CV() {
     const [header, setHeader] = useState({
@@ -149,11 +150,11 @@ export function CV() {
     ])
 
     return(
-    <>
+    <div id="cvOutput">
         <Header content={header} />
         <Education content={education} />
         <WorkExperience content={workExperience} />
         <ProjectExperience content={projectExperience} />
-    </>
+    </div>
     )
 }

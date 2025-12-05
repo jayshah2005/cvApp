@@ -1,18 +1,32 @@
 html{
   width: 100%;
   height: 100%;
+  padding: 0px;
   background-color: rgb(61, 58, 58);
   align-items: center;
 }
 
+#root{
+  padding: 0px !important;
+
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  flex-direction: row;
+}
+
 body{
+  width: 100%;
+  margin: 0px;
+}
+
+#cvOutput{
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  justify-self: right;
 
-  width: 100%; /* Ensures it uses full width on small screens */
+  width: 50%; /* Ensures it uses full width on small screens */
   height: auto;
-  max-width: 900px; /* Or a specific pixel value that suits your needs */
 
   padding: 20px; /* Add some padding for better readability */
   box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: adds a subtle page-like shadow */
