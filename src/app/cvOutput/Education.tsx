@@ -1,4 +1,3 @@
-import Divider from '@mui/material/Divider';
 import { SectionTitle } from './SectionTitle';
 
 export function Education({ content }) {

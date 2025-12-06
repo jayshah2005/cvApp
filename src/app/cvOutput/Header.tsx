@@ -1,4 +1,4 @@
-import "./inputs.css"
+import "./cvOutput.css"
 
 function  Header({content}){
 

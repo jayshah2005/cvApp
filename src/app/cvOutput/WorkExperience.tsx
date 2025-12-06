@@ -1,6 +1,6 @@
 import { SectionTitle } from "./SectionTitle"
 import { Points } from "./Points"
-import "./inputs.css"
+import "./cvOutput.css"
 import dateToString from "./date_formater"
 
 export function WorkExperience({content}){
