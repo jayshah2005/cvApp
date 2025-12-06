@@ -2,7 +2,7 @@ import "./cvOutput.css"
 
 function  Header({content}){
 
-    let list = content.subheading.join(" | ")    
+    let list = content.subheading.map(subheading => subheading.text).join(" | ")    
 
     return(
         <header id="header">

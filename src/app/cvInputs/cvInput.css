@@ -1,4 +1,16 @@
 #cvInput{
     display: flex;
     flex: 1;
+    justify-content: start;
+
+    margin: 30px;
+    background-color: white;
+}
+
+#cvInput > * {
+    margin: 10px;
+}
+
+#SubheadingInput > *{
+    margin-bottom: 10px;
 }

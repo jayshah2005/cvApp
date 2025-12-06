@@ -10,7 +10,13 @@ function App() {
 
       const [header, setHeader] = useState({
         name: "Jay Shah",
-        subheading: ["St. Catharines", "Ontario", "(905) 347-3616", "jayshah3616@gmail.com", "linkedin.com/in/jayshah3616", "github.com/jayshah2005"]
+        subheading: [
+            { id: crypto.randomUUID(), text: "St. Catharines, Ontario" },
+            { id: crypto.randomUUID(), text: "(905) 347-3616" },
+            { id: crypto.randomUUID(), text: "jayshah3616@gmail.com" },
+            { id: crypto.randomUUID(), text: "linkedin.com/in/jayshah3616" },
+            { id: crypto.randomUUID(), text: "github.com/jayshah2005" }
+        ]
     })
 
     const [education, setEducation] = useState([{   
@@ -153,7 +159,19 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <InputCV header={header} education={education} workExperience={workExperience} projectExperience={projectExperience} />
+    <InputCV
+    header={header}
+    setHeader={setHeader}
+
+    education={education}
+    setEducation={setEducation}
+
+    workExperience={workExperience}
+    setWorkExperience={setWorkExperience}
+
+    projectExperience={projectExperience}
+    setProjectExperience={setProjectExperience}
+    />
       <OutputCV header={header} education={education} workExperience={workExperience} projectExperience={projectExperience} />
     </ThemeProvider>
   )

@@ -1,15 +1,38 @@
 import { TextField } from "@mui/material"
+import { HeaderInput } from "./HeaderInput"
 import "./cvInput.css"
 
-export function InputCV({header, education, workExperience, projectExperience}){
+export function InputCV({
+    header,
+    setHeader,
+    education,
+    setEducation,
+    workExperience,
+    setWorkExperience,
+    projectExperience,
+    setProjectExperience
+}) {
 
     return(
         <div id="cvInput">
-            {/* <HeaderInput content={header} />
-            <EducationInput content={education} />
-            <WorkExperienceInput content={workExperience} />
-            <ProjectExperienceInput content={projectExperience} /> */}
-            <TextField id="filled-basic" label="Filled" variant="filled" />
+            <HeaderInput
+                header={header}
+                setHeader={setHeader}
+            />
+            {/* 
+            <EducationInput 
+                education={education} 
+                setEducation={setEducation}
+            />
+            <WorkExperienceInput 
+                workExperience={workExperience} 
+                setWorkExperience={setWorkExperience}
+            />
+            <ProjectExperienceInput 
+                projectExperience={projectExperience} 
+                setProjectExperience={setProjectExperience}
+            />
+            */}
         </div>
     )
 
