@@ -1,5 +1,6 @@
 import { TextField } from "@mui/material"
 import { HeaderInput } from "./HeaderInput"
+import { EducationInput } from "./EducationInput"
 import "./cvInput.css"
 import "./../../App.css"
 
@@ -20,20 +21,19 @@ export function InputCV({
                 header={header}
                 setHeader={setHeader}
             />
-            {/* 
+            
             <EducationInput 
                 education={education} 
                 setEducation={setEducation}
             />
-            <WorkExperienceInput 
+            {/* <WorkExperienceInput 
                 workExperience={workExperience} 
                 setWorkExperience={setWorkExperience}
             />
             <ProjectExperienceInput 
                 projectExperience={projectExperience} 
                 setProjectExperience={setProjectExperience}
-            />
-            */}
+            /> */}
         </div>
     )
 

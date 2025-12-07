@@ -5,7 +5,7 @@ export function HeaderInput({ header, setHeader }) {
     let subheadings = header.subheading
     
     return (
-        <div id="HeaderInput">
+        <div className="inputSection">
             <h1>Header</h1>
             <TextField
                 variant="standard"

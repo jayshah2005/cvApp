@@ -1,6 +1,10 @@
-#root {
-  margin: 0 auto;
-  padding: 1rem;
+#root{
+  padding: 0px !important;
+
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  flex-direction: row;
   text-align: center;
 }
 
@@ -12,13 +16,8 @@ html{
   align-items: center;
 }
 
-#root{
-  padding: 0px !important;
-
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
-  flex-direction: row;
+*{
+    font-size:14.5px;
 }
 
 body{
@@ -41,6 +40,7 @@ body{
 
 #cvInput{
     display: flex;
+    flex-direction: column;
     flex: 1;
     justify-content: start;
 

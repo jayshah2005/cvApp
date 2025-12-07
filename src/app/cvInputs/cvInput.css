@@ -1,18 +1,16 @@
 /* General CSS */
 
-#cvInput > * {
-    margin: 10px;
-}
-
-/* Header */
-
-#HeaderInput{
+.inputSection{
     display: flex;
-    flex: 1;
     flex-direction: column;
+    margin: 0px 10px;
 }
 
 /* Subheadings */
+
+#SubheadingInput h2{
+    margin-bottom: 0px;
+}
 
 .SubheadingInputContainer{
     display: inline;
