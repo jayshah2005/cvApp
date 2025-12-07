@@ -1,16 +1,43 @@
-#cvInput{
-    display: flex;
-    flex: 1;
-    justify-content: start;
-
-    margin: 30px;
-    background-color: white;
-}
+/* General CSS */
 
 #cvInput > * {
     margin: 10px;
 }
 
-#SubheadingInput > *{
-    margin-bottom: 10px;
+/* Header */
+
+#HeaderInput{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+/* Subheadings */
+
+.SubheadingInputContainer{
+    display: inline;
+}
+
+button.SubheadingInputButtons{
+    display: flex;
+    justify-self: end;
+    padding: 0px;
+    margin-bottom: 0px;
+
+    position: relative;
+    top: 20px;
+    text-align: center;
+
+    z-index: 1;
+}
+
+/* Subheading Button */
+
+#SubheadingInput > button{
+    width: 100%;
+    background-color: lightgreen;
+    margin-top: 20px;
+    padding: 5px;
+
+    border: solid green 1px;
 }

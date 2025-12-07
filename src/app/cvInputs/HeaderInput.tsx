@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
 export function HeaderInput({ header, setHeader }) {
 
@@ -21,19 +21,51 @@ export function HeaderInput({ header, setHeader }) {
                 let {text, id} = subheading 
                 
                     return(
-                        <TextField
-                            variant="standard"
-                            value={text}
-                            onChange={(e) => handleSubheadingChange(e, id)}
-                            label={"subheading " + (index + 1)}
-                            fullWidth
-                            key={id}
-                        />
+                        <div className="SubheadingInputContainer" key={id}>
+                            <Button color="error" className="SubheadingInputButtons" onClick={(e) => removeSubheading(e, id)}>
+                                x
+                            </Button>
+
+                            <TextField
+                                variant="standard"
+                                value={text}
+                                onChange={(e) => {handleSubheadingChange(e, id)}}
+                                label={"subheading " + (index + 1)}
+                                fullWidth
+                            />
+                        </div>
                     )
                 })}
+
+                <button onClick={addSubheading}>
+                    +
+                </button>
             </div>
         </div>
     );
+
+    function addSubheading(){
+        let json = {
+            id: crypto.randomUUID(),
+            text: ""
+        }
+
+        subheadings.push(json)
+
+        setHeader({...header, 
+            subheading: [...subheadings]
+        })
+    }
+
+    function removeSubheading(e, id){
+        let i = findIndex(id)
+
+        subheadings.splice(i, 1)
+
+        setHeader({...header, 
+            subheading: [...subheadings]
+        })
+    }
 
     function handleNameChange(e) {
         setHeader({
@@ -43,6 +75,17 @@ export function HeaderInput({ header, setHeader }) {
     }
 
     function handleSubheadingChange(e, id) {
+        
+        let i = findIndex(id)
+
+        subheadings[i].text = e.target.value
+
+        setHeader({...header, 
+            subheading: [...subheadings]
+        })
+    }
+
+    function findIndex(id){
         let i = 0
         let n = subheadings.length
 
@@ -56,13 +99,7 @@ export function HeaderInput({ header, setHeader }) {
             i++
         }
 
-        subheadings[i].text = e.target.value
-
-        setHeader({...header, 
-            subheading: [...subheadings]
-        })
-
-        console.log("subheadings:", subheadings);
+        return i
     }
 
 }

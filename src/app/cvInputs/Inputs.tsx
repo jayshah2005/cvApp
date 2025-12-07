@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material"
 import { HeaderInput } from "./HeaderInput"
 import "./cvInput.css"
+import "./../../App.css"
 
 export function InputCV({
     header,
