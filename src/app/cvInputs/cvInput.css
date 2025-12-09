@@ -4,19 +4,18 @@
     display: flex;
     flex-direction: column;
     margin: 0px 10px;
+    overflow: scroll;
 }
 
-/* Subheadings */
-
-#SubheadingInput h2{
-    margin-bottom: 0px;
+h2{
+    justify-self: left;
+    margin-top: 0px;
 }
 
-.SubheadingInputContainer{
-    display: inline;
-}
 
-button.SubheadingInputButtons{
+/* Remove Button */
+
+button.removeButton{
     display: flex;
     justify-self: end;
     padding: 0px;
@@ -29,13 +28,35 @@ button.SubheadingInputButtons{
     z-index: 1;
 }
 
-/* Subheading Button */
+/* Add Button */
 
-#SubheadingInput > button{
+button.addButton{
     width: 100%;
     background-color: lightgreen;
     margin-top: 20px;
     padding: 5px;
 
     border: solid green 1px;
+}
+
+/* Date Picker */
+
+.datePicker{
+    display: flex;
+    flex: 1;
+
+    width: 100%;
+
+    margin: 20px 0px;
+}
+
+.datePicker > * {
+    max-width: 175px !important;
+    margin: 0px 50px 0px 0px !important;
+}
+
+/* Subheading Input Containers */
+
+.InputContainer > div{
+    margin: 10px 0px;
 }

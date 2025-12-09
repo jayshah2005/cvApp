@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { OutputCV } from './app/cvOutput/cvOutput'
 import './App.css'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { LocalizationProvider } from '@mui/x-date-pickers';
 import { InputCV } from './app/cvInputs/Inputs'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 function App() {
 
@@ -158,22 +160,24 @@ function App() {
     ])
 
   return (
-    <ThemeProvider theme={theme}>
-    <InputCV
-    header={header}
-    setHeader={setHeader}
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <ThemeProvider theme={theme}>
+            <InputCV
+            header={header}
+            setHeader={setHeader}
 
-    education={education}
-    setEducation={setEducation}
+            education={education}
+            setEducation={setEducation}
 
-    workExperience={workExperience}
-    setWorkExperience={setWorkExperience}
+            workExperience={workExperience}
+            setWorkExperience={setWorkExperience}
 
-    projectExperience={projectExperience}
-    setProjectExperience={setProjectExperience}
-    />
-      <OutputCV header={header} education={education} workExperience={workExperience} projectExperience={projectExperience} />
-    </ThemeProvider>
+            projectExperience={projectExperience}
+            setProjectExperience={setProjectExperience}
+            />
+            <OutputCV header={header} education={education} workExperience={workExperience} projectExperience={projectExperience} />
+        </ThemeProvider>
+    </LocalizationProvider>
   )
 }
 

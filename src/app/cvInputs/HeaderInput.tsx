@@ -15,14 +15,15 @@ export function HeaderInput({ header, setHeader }) {
                 fullWidth
             />
             <div id="SubheadingInput">
+                <br />
                 <h2>Subheadings:</h2>
                 {subheadings.map((subheading, index) => {
                 
                 let {text, id} = subheading 
                 
                     return(
-                        <div className="SubheadingInputContainer" key={id}>
-                            <Button color="error" className="SubheadingInputButtons" onClick={(e) => removeSubheading(e, id)}>
+                        <div key={id}>
+                            <Button color="error" className="removeButton" onClick={(e) => removeSubheading(e, id)}>
                                 x
                             </Button>
 
@@ -37,7 +38,7 @@ export function HeaderInput({ header, setHeader }) {
                     )
                 })}
 
-                <button onClick={addSubheading}>
+                <button onClick={addSubheading} className="addButton">
                     +
                 </button>
             </div>

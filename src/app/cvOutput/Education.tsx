@@ -2,6 +2,10 @@ import { SectionTitle } from './SectionTitle';
 
 export function Education({ content }) {
 
+    if(content.length == 0){
+        return <></>
+    }
+
     return (
     <div className="section">
         
