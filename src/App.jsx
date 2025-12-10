@@ -86,6 +86,7 @@ function App() {
         {
             id: crypto.randomUUID(),
             "title": "YouTube Shorts Factory",
+            link: "https://github.com/jayshah2005/youtubeShortsFactory",
             "points": [
             {
                 "id": crypto.randomUUID(),
