@@ -25,7 +25,6 @@ export const createWorkExperienceEntry = () => ({
 export const createProjectExperienceEntry = () => ({
   id: crypto.randomUUID(),
   title: "",
-  subtitle: "",
   link: "",
   points: [],
   start_date: new Date(),

@@ -36,22 +36,28 @@ export function SubsectionHeader({
                             onChange={(e) => {handleTitleChange(e, id)}}
                             fullWidth
                         />
-                       
-                        <TextField
+
+                        {"subtitle" in content
+                        ? <TextField
                             variant="standard"
                             label="Subtitle"
                             value={content.subtitle}
                             onChange={(e) => {handleSubtitleChange(e, id)}}
                             fullWidth
                         />
+                        : <></>}
 
-                        <TextField
+                        {"location" in content
+                        ? <TextField
                             variant="standard"
                             label="Location"
                             value={content.location}
                             onChange={(e) => {handleLocationChange(e, id)}}
                             fullWidth
                         />
+                        : <></>}
+
+                        
 
                         <div className="datePicker">
                             <DatePicker 

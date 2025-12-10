@@ -86,7 +86,6 @@ function App() {
         {
             id: crypto.randomUUID(),
             "title": "YouTube Shorts Factory",
-            subtitle: "",
             "points": [
             {
                 "id": crypto.randomUUID(),
@@ -103,7 +102,6 @@ function App() {
         {
             "id": crypto.randomUUID(),
             title: "Tech Lead, Virtual Dance Environment",
-            subtitle: "",
             "link": "https://youtube.com/watch?v=DTl2i-3Lb7o",
             "points": [
             {
@@ -121,7 +119,6 @@ function App() {
         {
             id: "coexistence",
             title: "CoExistence",
-            subtitle: "",
             link: "https://github.com/jayshah2005/CoExistence",
             points: [
                 {
