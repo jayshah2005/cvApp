@@ -1,5 +1,6 @@
 import { Button, TextField } from "@mui/material"
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { SubsectionHeader } from "./SubSectionHeader";
 import dayjs from "dayjs";
 import "./cvInput.css"
 
@@ -9,69 +10,17 @@ export function EducationInput({education, setEducation}){
 
     return(
         <div className="inputSection">
-            <h1>Education</h1>            
-            {education.map((content, index) => {
-
-                let id = content.id 
-
-                return (
-                    <div className="InputContainer" key={content.id}>
-                        <Button color="error" className="removeButton" onClick={(e) => removeSubheading(e, id)}>
-                                x
-                        </Button>
-                        <h2>Education {index + 1}</h2>
-                        <TextField
-                            variant="standard"
-                            label="University"
-                            value={content.university}
-                            onChange={(e) => {handleEducationUniversityChange(e, id)}}
-                            fullWidth
-                        />
-                       
-                        <TextField
-                            variant="standard"
-                            label="Degree"
-                            value={content.degree}
-                            onChange={(e) => {handleEducationDegreeChange(e, id)}}
-                            fullWidth
-                        />
-
-                        <TextField
-                            variant="standard"
-                            label="Location"
-                            value={content.location}
-                            onChange={(e) => {handleEducationLocationChange(e, id)}}
-                            fullWidth
-                        />
-
-                         <div className="datePicker">
-                            <DatePicker 
-                                label={'Start Date'} 
-                                views={['month', 'year']} 
-                                value={dayjs(content.start_date)}
-                                slotProps={{
-                                    textField: {
-                                    size: "small",
-                                    }
-                                }} 
-                                onChange={(e) => handleEducationStartDateChange(e, id)}
-                            />
-                            
-                            <DatePicker 
-                                label={'End Date'} 
-                                views={['month', 'year']} 
-                                value={dayjs(content.end_date)}
-                                slotProps={{
-                                    textField: {
-                                    size: "small"
-                                    }
-                                }}
-
-                            />
-                        </div>
-                    </div>
-                )
-            })}
+            <h1>Education</h1> 
+            <SubsectionHeader 
+                subsectionName = {"Education"}
+                subsection={education}
+                handleTitleChange={handleEducationDegreeChange}
+                handleSubtitleChange={handleEducationUniversityChange}
+                handleLocationChange={handleEducationLocationChange}
+                handleStartDateChange={handleEducationStartDateChange}
+                handleEndDateChange={handleEducationEndDateChange}
+                removeSubheading={removeSubheading}
+            />
             <button onClick={addSubheading} className="addButton">
                 +
             </button>
@@ -90,6 +39,14 @@ export function EducationInput({education, setEducation}){
         setEducation(prev =>
             prev.map(item =>
             item.id === id ? { ...item, start_date: new Date(e) } : item
+            )
+        );
+    }
+
+    function handleEducationEndDateChange(e, id){
+        setEducation(prev =>
+            prev.map(item =>
+            item.id === id ? { ...item, end_date: new Date(e) } : item
             )
         );
     }

@@ -13,7 +13,7 @@ export function Education({ content }) {
 
         {content.map((item, index) => {
             return (
-            <EducationSection content={item} key={content.id + index}/>
+            <EducationSection content={item} key={item.id}/>
         )
         })}
     </div>

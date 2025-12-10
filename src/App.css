@@ -1,16 +1,12 @@
 #root{
-  padding: 0px !important;
-
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Three equal columns */
   text-align: center;
 }
 
 html{
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   padding: 0px;
   background-color: rgb(185, 234, 242);
   align-items: center;
@@ -30,20 +26,15 @@ body{
   flex-direction: column;
   justify-self: right;
 
-  width: 50%; /* Ensures it uses full width on small screens */
-  height: auto;
-
   padding: 20px; /* Add some padding for better readability */
+  margin: 10px 10px 10px 0px;
+
   box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: adds a subtle page-like shadow */
   background-color: white;
 }
 
 #cvInput{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: start;
-
-    margin: 30px;
-    background-color: white;
+  margin: 30px;
+  padding: 20px 0px;
+  background-color: white;
 }

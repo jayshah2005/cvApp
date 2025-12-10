@@ -1,4 +1,5 @@
 import { Button, TextField } from "@mui/material";
+import { Points } from "./Points";
 
 export function HeaderInput({ header, setHeader }) {
 
@@ -14,34 +15,14 @@ export function HeaderInput({ header, setHeader }) {
                 label="Name"
                 fullWidth
             />
-            <div id="SubheadingInput">
-                <br />
-                <h2>Subheadings:</h2>
-                {subheadings.map((subheading, index) => {
-                
-                let {text, id} = subheading 
-                
-                    return(
-                        <div key={id}>
-                            <Button color="error" className="removeButton" onClick={(e) => removeSubheading(e, id)}>
-                                x
-                            </Button>
 
-                            <TextField
-                                variant="standard"
-                                value={text}
-                                onChange={(e) => {handleSubheadingChange(e, id)}}
-                                label={"subheading " + (index + 1)}
-                                fullWidth
-                            />
-                        </div>
-                    )
-                })}
-
-                <button onClick={addSubheading} className="addButton">
-                    +
-                </button>
-            </div>
+            <Points
+                pointHeader={"Subheadings"}
+                content={subheadings}
+                removePoint={removeSubheading}
+                changePoint={handleSubheadingChange}
+                addSubheading={addSubheading}
+            />
         </div>
     );
 
