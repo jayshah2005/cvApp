@@ -3,6 +3,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Points } from "./Points";
 import dayjs from "dayjs";
 import "./cvInput.css"
+import { createPoint } from "../templates";
 
 export function SubsectionHeader({
     subsectionName,
@@ -13,14 +14,14 @@ export function SubsectionHeader({
     handleLocationChange, 
     handleStartDateChange, 
     handleEndDateChange,
-    removeSubheading}){
-
-    let points = subsection.points ? subsection.points : []
-
+    removeSubheading}){    
+    
     return(<>
             {subsection.map((content, index) => {
 
-                let id = content.id 
+                let id = content.id
+
+                if(content.length == 0) return <></>
 
                 return (
                     <div className="InputContainer" key={content.id}>
@@ -30,16 +31,16 @@ export function SubsectionHeader({
                         <h2>{subsectionName} {index + 1}</h2>
                         <TextField
                             variant="standard"
-                            label="University"
-                            value={content.university}
+                            label="Title"
+                            value={content.title}
                             onChange={(e) => {handleTitleChange(e, id)}}
                             fullWidth
                         />
                        
                         <TextField
                             variant="standard"
-                            label="Degree"
-                            value={content.degree}
+                            label="Subtitle"
+                            value={content.subtitle}
                             onChange={(e) => {handleSubtitleChange(e, id)}}
                             fullWidth
                         />
@@ -52,7 +53,7 @@ export function SubsectionHeader({
                             fullWidth
                         />
 
-                         <div className="datePicker">
+                        <div className="datePicker">
                             <DatePicker 
                                 label={'Start Date'} 
                                 views={['month', 'year']} 
@@ -76,70 +77,62 @@ export function SubsectionHeader({
                                 }}
                                 onChange={(e) => handleEndDateChange(e, id)}
                             />
-
-                            <Points pointHeader={""} content={content.points} removePoint={} changePoint={} addSubheading={}/>
                         </div>
+                        {   
+                            "points" in content? 
+                            <Points 
+                                pointHeader={""} 
+                                content={content.points} 
+                                removePoint={(e, pointId) => removePoint(e, id, pointId)} 
+                                changePoint={(e, pointId) => changePoint(e, id, pointId)} 
+                                addSubheading={() => addPoint(id)}
+                            />
+                            : []
+                        }
                     </div>
                 )
             })}
 
     </>)
 
-     function addSubheading(points){
-        let json = {
-            id: crypto.randomUUID(),
-            text: ""
-        }
-
-        points.push(json)
-
-        setSubsection({...subsection, 
-            points: [...points]
-        })
+    function addPoint(id) {
+        if(!setSubsection) return;
+        setSubsection(prev => 
+            prev.map(item => 
+                item.id === id
+                    ? { ...item, points: [...(item.points || []), createPoint()] }
+                    : item
+            )
+        );
     }
 
-    function removeSubheading(points, e, id){
-        let i = findIndex(id)
-
-        points.splice(i, 1)
-
-        setSubsection({...subsection, 
-            subheading: [...points]
-        })
+    function removePoint(e, id, pointId) {
+        if(!setSubsection) return;
+        setSubsection(prev =>
+            prev.map(item =>
+                item.id === id
+                    ? { ...item, points: (item.points || []).filter(p => p.id !== pointId) }
+                    : item
+            )
+        );
     }
 
-    function handleNameChange(e) {
-        setSubsection({
-            ...subsection,
-            name: e.target.value
-        });
+    function changePoint(e, id, pointId) {
+        if(!setSubsection) return;
+        const value = e.target.value;
+
+        setSubsection(prev =>
+            prev.map(item =>
+                item.id === id
+                    ? {
+                        ...item,
+                        points: (item.points || []).map(p =>
+                            p.id === pointId ? { ...p, text: value } : p
+                        ),
+                    }
+                    : item
+            )
+        );
     }
 
-    function handleSubheadingChange(e, id) {
-        
-        let i = findIndex(id)
-
-        points[i].text = e.target.value
-
-        setSubsection({...header, 
-            points: [...points]
-        })
-    }
-
-    function findIndex(id){
-        let i = 0
-        let n = points.length
-
-
-        while(i < n){
-            
-            if(points[i].id == id){
-                break;
-            }
-
-            i++
-        }
-
-        return i
-    }
 }

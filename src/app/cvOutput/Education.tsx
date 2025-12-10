@@ -27,11 +27,11 @@ function EducationSection({ content }) {
     return(
         <div className="subsection">
             <div className="subsection_subhead_1">
-                <div>{content.university}</div>
+                <div>{content.title}</div>
                 <div>{content.location}</div>
             </div>
             <div className="subsection_subhead_2">
-                <div>{content.degree}</div>
+                <div>{content.subtitle}</div>
                 <div>{date}</div>
             </div>
         </div>

@@ -3,8 +3,16 @@ import { TextField,Button } from "@mui/material"
 export function Points({pointHeader, content, removePoint, changePoint, addSubheading}){
     return(
         <div id="SubheadingInput">
-            <br />
-            <h2>{pointHeader}:</h2>
+
+            {pointHeader != "" 
+            ?   <>
+                    <br />
+                    <h2>{pointHeader}:</h2>
+                </>
+            
+            : <></> 
+            }
+            
             {content.map((point, index) => {
                 
                 let {text, id} = point

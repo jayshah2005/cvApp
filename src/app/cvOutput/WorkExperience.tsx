@@ -5,6 +5,7 @@ import dateToString from "./date_formater"
 
 export function WorkExperience({content}){
 
+    if(content.length == 0) return <></>
 
     return(
         <div className="section">
@@ -28,12 +29,12 @@ function WorkSection({ content }) {
         <div className="subsection">
 
             <div className="subsection_subhead_1">
-                <div>{content.company}</div>
+                <div>{content.title}</div>
                 <div>{content.location}</div>
             </div>
 
             <div className="subsection_subhead_2">
-                <div>{content.position}</div>
+                <div>{content.subtitle}</div>
                 <div>{date}</div>
             </div>
 

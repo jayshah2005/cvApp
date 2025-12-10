@@ -1,12 +1,8 @@
-import { Button, TextField } from "@mui/material"
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { SubsectionHeader } from "./SubSectionHeader";
-import dayjs from "dayjs";
 import "./cvInput.css"
+import { createEducationEntry } from "../templates";
 
 export function EducationInput({education, setEducation}){
-
-    let educations = education
 
     return(
         <div className="inputSection">
@@ -14,8 +10,8 @@ export function EducationInput({education, setEducation}){
             <SubsectionHeader 
                 subsectionName = {"Education"}
                 subsection={education}
-                handleTitleChange={handleEducationDegreeChange}
-                handleSubtitleChange={handleEducationUniversityChange}
+                handleTitleChange={handleEducationTitleChange}
+                handleSubtitleChange={handleEducationSubtitleChange}
                 handleLocationChange={handleEducationLocationChange}
                 handleStartDateChange={handleEducationStartDateChange}
                 handleEndDateChange={handleEducationEndDateChange}
@@ -51,18 +47,18 @@ export function EducationInput({education, setEducation}){
         );
     }
 
-    function handleEducationUniversityChange(e, id) {
+    function handleEducationTitleChange(e, id) {
         setEducation(prev =>
             prev.map(item =>
-            item.id === id ? { ...item, university: e.target.value } : item
+            item.id === id ? { ...item, title: e.target.value } : item
             )
         );
     }
 
-    function handleEducationDegreeChange(e, id) {
+    function handleEducationSubtitleChange(e, id) {
         setEducation(prev =>
             prev.map(item =>
-            item.id === id ? { ...item, degree: e.target.value } : item
+            item.id === id ? { ...item, subtitle: e.target.value } : item
             )
         );
     }
@@ -72,15 +68,6 @@ export function EducationInput({education, setEducation}){
     }
 
     function addSubheading(){
-        let json = {
-            degree: "",
-            university: "",
-            location: "",
-            start_date: new Date(),
-            end_date: new Date(),
-            id: crypto.randomUUID()
-        }
-
-        setEducation([...education, json])
+        setEducation(prev => [...prev, createEducationEntry()])
     }
 }

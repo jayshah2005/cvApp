@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material"
 import { HeaderInput } from "./HeaderInput"
 import { EducationInput } from "./EducationInput"
+import { WorkExperienceInput } from "./WorkExperienceInput"
 import "./cvInput.css"
 import "./../../App.css"
 
@@ -26,11 +27,11 @@ export function InputCV({
                 education={education} 
                 setEducation={setEducation}
             />
-            {/* <WorkExperienceInput 
+            <WorkExperienceInput 
                 workExperience={workExperience} 
                 setWorkExperience={setWorkExperience}
             />
-            <ProjectExperienceInput 
+            {/* <ProjectExperienceInput 
                 projectExperience={projectExperience} 
                 setProjectExperience={setProjectExperience}
             /> */}

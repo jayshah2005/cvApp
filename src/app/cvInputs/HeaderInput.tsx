@@ -1,5 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import { Points } from "./Points";
+import { createHeaderSubheading } from "../templates";
 
 export function HeaderInput({ header, setHeader }) {
 
@@ -27,16 +28,10 @@ export function HeaderInput({ header, setHeader }) {
     );
 
     function addSubheading(){
-        let json = {
-            id: crypto.randomUUID(),
-            text: ""
-        }
-
-        subheadings.push(json)
-
-        setHeader({...header, 
-            subheading: [...subheadings]
-        })
+        setHeader({
+            ...header,
+            subheading: [...subheadings, createHeaderSubheading("")]
+        });
     }
 
     function removeSubheading(e, id){

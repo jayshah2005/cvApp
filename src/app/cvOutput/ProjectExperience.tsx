@@ -25,7 +25,7 @@ function ProjectSection({ project }) {
         <div className="subsection">
 
             <div className="subsection_subhead_1">
-                <div>{project.name}</div>
+                <div>{project.title} {project.link ? "|" : ""} {project.link ? <a href={project.link} target="_blank" rel="noreferrer">{project.link.replace(/^https?:\/\//, '')}</a> : <div></div>}</div>
                 <div>{date}</div>
             </div>
 
