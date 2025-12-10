@@ -1,16 +1,39 @@
-# React + Vite
+# CV Builder Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic resume builder built with React and TypeScript that allows users to create, edit, and preview professional CVs in real-time.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Real-time Preview**: Live preview of CV changes as you type
+- **Dynamic Sections**: Add, edit, and remove education, work experience, and project entries
+- **Date Management**: Integrated date pickers for accurate timeline tracking
+- **Bullet Points**: Dynamic bullet point management for work experience and projects
+- **Responsive Design**: Clean, professional layout using Material-UI components
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** with TypeScript
+- **Material-UI (MUI)** for component library and theming
+- **Vite** for fast development and building
+- **Day.js** for date handling and formatting
 
-## Expanding the ESLint configuration
+## What I Learned
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Component Architecture**: Designed reusable, modular components for input and output sections
+- **State Management**: Managed complex nested state structures (arrays of objects with nested arrays)
+- **TypeScript**: Applied type safety throughout the application
+- **Material-UI Integration**: Implemented MUI components including DatePicker with proper date handling
+- **Data Normalization**: Refactored data structures to a standardized format (title/subtitle) for consistency
+- **Template Pattern**: Created reusable template functions for generating new entries
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Build for production:
+```bash
+npm run build
+```
