@@ -1,4 +1,4 @@
-import { SubsectionHeader } from "./SubSectionHeader";
+import { SubsectionHeader } from "./SubsectionHeader";
 import "./cvInput.css"
 import { createEducationEntry } from "../templates";
 
