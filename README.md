@@ -2,6 +2,10 @@
 
 A dynamic resume builder built with React and TypeScript that allows users to create, edit, and preview professional CVs in real-time.
 
+## Live Demo
+
+🔗 [View Live Application](https://cvapp-eri.pages.dev/)
+
 ## Features
 
 - **Real-time Preview**: Live preview of CV changes as you type
